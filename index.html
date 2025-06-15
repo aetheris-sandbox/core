@@ -1,225 +1,22 @@
 <!DOCTYPE html>
 <html lang="ru">
-<link rel="icon" href="icon_core.png" type="image/png">
-<link rel="shortcut icon" href="icon_core.png">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aetheris Sandbox</title>
-    <style>
-        :root {
-            --primary: #6a5acd;
-            --secondary: #483d8b;
-            --accent: #9370db;
-            --dark: #1a1a2e;
-            --light: #f8f9fa;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--dark);
-            color: var(--light);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            padding: 1rem 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: url('main.png') no-repeat center center/cover;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(26, 26, 46, 0.7);
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 600px;
-        }
-        
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            color: #e0e0e0;
-        }
-        
-        /* Posts Section */
-        .posts-section {
-            padding: 4rem 0;
-        }
-        
-        .posts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .post-card {
-            background-color: #2a2a3e;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .post-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .post-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .post-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .post-card:hover .post-image img {
-            transform: scale(1.05);
-        }
-        
-        .post-content {
-            padding: 20px;
-        }
-        
-        .post-date {
-            font-size: 0.85rem;
-            color: #a0a0a0;
-            margin-bottom: 10px;
-        }
-        
-        .post-title {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-            color: white;
-            font-weight: 600;
-        }
-        
-        .post-text {
-            color: #e0e0e0;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-        
-        /* Discord Button */
-        .discord-container {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-        }
-        
-        .discord-btn {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background-color: #5865F2;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
-            transition: all 0.3s ease;
-        }
-        
-        .discord-btn:hover {
-            background-color: #4752c4;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.6);
-        }
-        
-        .discord-btn i {
-            font-size: 1.2rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .hero {
-                height: auto;
-                padding: 4rem 0;
-            }
-            
-            .hero-content {
-                text-align: center;
-            }
-            
-            .posts-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .discord-btn {
-                padding: 10px 16px;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="icon_core.png" type="image/png">
+    <link rel="shortcut icon" href="icon_core.png">
 </head>
 <body>
     <header>
         <div class="container header-content">
-            <div class="logo">Aetheris Sandbox</div>
+            <div class="logo">
+                <img src="icon_core.png" alt="Aetheris Sandbox Logo">
+                <h1>Aetheris Sandbox</h1>
+            </div>
         </div>
     </header>
 
@@ -227,13 +24,24 @@
         <div class="container hero-content">
             <h2>Добро пожаловать в Aetheris Sandbox</h2>
             <p>Исследуйте бескрайние возможности нашей игровой песочницы. Создавайте, разрушайте и экспериментируйте в уникальной вселенной Aetheris.</p>
+            <div class="hero-buttons">
+                <a href="#news" class="btn">
+                    <i class="fas fa-newspaper"></i> Последние новости
+                </a>
+                <a href="https://discord.gg/y63qupBrAe" class="btn btn-discord" target="_blank">
+                    <i class="fab fa-discord"></i> Присоединиться
+                </a>
+            </div>
         </div>
     </section>
 
-    <section class="posts-section">
+    <section class="posts-section" id="news">
         <div class="container">
+            <div class="section-title">
+                <h2>Последние новости</h2>
+            </div>
             <div class="posts-grid">
-        <!-- Пример поста 3 -->
+                <!-- Пример поста 3 -->
                 <div class="post-card">
                     <div class="post-image">
                         <img src="post3.png" alt="Universal">
@@ -241,13 +49,12 @@
                     <div class="post-content">
                         <div class="post-date">13 июня 2025</div>
                         <h3 class="post-title">Небольшое обновление! Light Update</h3>
-                        <div class="post-text">
-                        Новое обновление принесло в игру: фары для автомобилей, аварийные стоп сигналы и мигалки для служебного транспорта, новый спидометр и индикаторы! 
-                        <br><br>
-                        Следите за обновлениями и присоединяйтесь к нашему Discord-сообществу! 
-                        </div>
+                        <p class="post-text">
+                            Новое обновление принесло в игру: фары для автомобилей, аварийные стоп сигналы и мигалки для служебного транспорта, новый спидометр и индикаторы!
+                        </p>
                     </div>
                 </div>
+                
                 <!-- Пример поста 2 -->
                 <div class="post-card">
                     <div class="post-image">
@@ -256,16 +63,13 @@
                     <div class="post-content">
                         <div class="post-date">10 мая 2025</div>
                         <h3 class="post-title">Новое обновление! (DevBlog)</h3>
-                        <div class="post-text">
+                        <p class="post-text">
                             Вышло новое обновление, в котором было добавлено: Автомобили, обновленное главное меню, HUD Здоровья и новые пропы!
-                            <br><br>
-                            Следите за нами, присоединяйтесь к нашему Discord-сообществу!
-                            <br><br>
-                            P.S Игра находится на стадии разработки, поэтому поиграть в неё пока нельзя. Просьба не писать разработчику. Спасибо!
-                        </div>
+                        </p>
                     </div>
                 </div>
-                            <!-- Пример поста 1 -->
+                
+                <!-- Пример поста 1 -->
                 <div class="post-card">
                     <div class="post-image">
                         <img src="post1.png" alt="Игровой мир">
@@ -273,24 +77,22 @@
                     <div class="post-content">
                         <div class="post-date">27 апреля 2025</div>
                         <h3 class="post-title">Официальный запуск сайта Aetheris Sandbox!</h3>
-                        <div class="post-text">
-                            Долгожданный момент настал — мы запускаем сайт, где вы сможете найти всё самое важное о мире Aetheris. Здесь будут публиковаться последние новости, анонсы обновлений, гайды и лучшие работы сообщества.
-                            <br><br>
-                            Сайт создан для вас, и мы будем развивать его вместе.
-Присоединяйтесь к нашему Discord-сообществу и следите за обновлениями.
-                        </div>
+                        <p class="post-text">
+                            Долгожданный момент настал — мы запускаем сайт, где вы сможете найти всё самое важное о мире Aetheris. Здесь будут публиковаться последние новости, анонсы обновлений.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Discord Button -->
-    <div class="discord-container">
-        <a href="https://discord.gg/y63qupBrAe" class="discord-btn" target="_blank">
-            <i class="fab fa-discord"></i>
-            <span>Присоединиться</span>
-        </a>
-    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Aetheris Sandbox</div>
+                <p class="copyright">© 2025 Aetheris Sandbox. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
