@@ -11,12 +11,20 @@
     <link rel="shortcut icon" href="icon_core.png">
 </head>
 <body>
+    <div class="particles" id="particles-js"></div>
     <header>
         <div class="container header-content">
             <div class="logo">
                 <img src="icon_core.png" alt="Aetheris Sandbox Logo">
                 <h1>Aetheris Sandbox</h1>
             </div>
+            <nav>
+                <ul>
+                    <li><a href="#news">Главная</a></li>
+                    <li><a href="#news">Новости</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -33,6 +41,11 @@
                 </a>
             </div>
         </div>
+        <div class="scroll-down">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </section>
 
     <section class="posts-section" id="news">
@@ -41,10 +54,10 @@
                 <h2>Последние новости</h2>
             </div>
             <div class="posts-grid">
-                <!-- Пример поста 3 -->
                 <div class="post-card">
                     <div class="post-image">
                         <img src="post3.png" alt="Universal">
+                        <div class="post-badge">Новое</div>
                     </div>
                     <div class="post-content">
                         <div class="post-date">13 июня 2025</div>
@@ -52,10 +65,12 @@
                         <p class="post-text">
                             Новое обновление принесло в игру: фары для автомобилей, аварийные стоп сигналы и мигалки для служебного транспорта, новый спидометр и индикаторы!
                         </p>
+                        <div class="post-tags">
+                            <span class="tag">Обычное Обновление</span>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Пример поста 2 -->
                 <div class="post-card">
                     <div class="post-image">
                         <img src="post2.png" alt="Игровой мир">
@@ -66,10 +81,12 @@
                         <p class="post-text">
                             Вышло новое обновление, в котором было добавлено: Автомобили, обновленное главное меню, HUD Здоровья и новые пропы!
                         </p>
+                        <div class="post-tags">
+                            <span class="tag">Крупное Обновление</span>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Пример поста 1 -->
                 <div class="post-card">
                     <div class="post-image">
                         <img src="post1.png" alt="Игровой мир">
@@ -80,6 +97,48 @@
                         <p class="post-text">
                             Долгожданный момент настал — мы запускаем сайт, где вы сможете найти всё самое важное о мире Aetheris. Здесь будут публиковаться последние новости, анонсы обновлений.
                         </p>
+                        <div class="post-tags">
+                            <span class="tag">Сайт</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Часто задаваемые вопросы</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Что такое Aetheris Sandbox?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Aetheris Sandbox - это уникальная игровая песочница с открытым миром, где вы можете создавать, исследовать и взаимодействовать с окружением. Игра предлагает полную свободу действий и множество возможностей для творчества.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>На каких платформах доступна игра?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>В настоящее время игра доступна только на PC (Windows).</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Когда выйдет игра?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Первое закрытое бета-тестирование планируется осенью 2025 года.</p>
                     </div>
                 </div>
             </div>
@@ -89,10 +148,22 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">Aetheris Sandbox</div>
+                <div class="footer-logo">
+                    <img src="icon_core.png" alt="Aetheris Sandbox Logo">
+                    <span>Aetheris Sandbox</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Главная</a>
+                    <a href="#news">Новости</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="https://discord.gg/y63qupBrAe" target="_blank">Discord</a>
+                </div>
                 <p class="copyright">© 2025 Aetheris Sandbox. Все права защищены.</p>
             </div>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
