@@ -6,125 +6,232 @@
     <title>Aetheris Sandbox</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" href="icon_core.png" type="image/png">
-    <link rel="shortcut icon" href="icon_core.png">
 </head>
 <body>
-    <div class="particles" id="particles-js"></div>
+     <div class="loader">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">Загрузка...</div>
+    </div>
+    
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
     <header>
         <div class="container header-content">
-            <div class="logo">
+            <div class="logo floating">
                 <img src="icon_core.png" alt="Aetheris Sandbox Logo">
                 <h1>Aetheris Sandbox</h1>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#news">Главная</a></li>
+                    <li><a href="#core" class="active">Главная</a></li>
                     <li><a href="#news">Новости</a></li>
                     <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#studio">Nelik Studio</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="core">
         <div class="container hero-content">
-            <h2>Добро пожаловать в Aetheris Sandbox</h2>
-            <p>Исследуйте бескрайние возможности нашей игровой песочницы. Создавайте, разрушайте и экспериментируйте в уникальной вселенной Aetheris.</p>
+            <h2>Исследуйте Aetheris Sandbox</h2>
+            <p>Минималистичная песочница с акцентом на свободу творчества и строительства.</p>
             <div class="hero-buttons">
-                <a href="#news" class="btn">
-                    <i class="fas fa-newspaper"></i> Последние новости
+                <a href="#news" class="btn btn-solid glow">
+                    <i class="fas fa-newspaper"></i> Новости
                 </a>
-                <a href="https://discord.gg/y63qupBrAe" class="btn btn-discord" target="_blank">
-                    <i class="fab fa-discord"></i> Присоединиться
+                <a href="https://discord.gg/y63qupBrAe" class="btn glow" target="_blank">
+                    <i class="fab fa-discord"></i> Discord
                 </a>
             </div>
         </div>
-        <div class="scroll-down">
-            <span></span>
-            <span></span>
-            <span></span>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="features-section fade-in" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ключевые возможности</h2>
+                <p class="section-subtitle">Что делает Aetheris Sandbox уникальным</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="feature-title">Активные разработчики</h3>
+                    <p class="feature-text">Поддержка игры и разработка новых механик будет продолжаться еще долгое время.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="feature-title">Система строительства</h3>
+                    <p class="feature-text">Стройте и изменяйте карту вокруг себя с помощью различных инструментов.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Мультиплеер</h3>
+                    <p class="feature-text">Играйте с друзьями или присоединяйтесь к сообществу создателей.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3 class="feature-title">Полная свобода действий</h3>
+                    <p class="feature-text">Делайте что угодно, развлекайтесь и просто получайте удовольствие.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="posts-section" id="news">
+    <div class="section-divider"></div>
+
+    <section class="posts-section fade-in" id="news">
         <div class="container">
             <div class="section-title">
-                <h2>Последние новости</h2>
+                <h2>Последние обновления</h2>
+                <p class="section-subtitle">Следите за развитием проекта</p>
             </div>
             <div class="posts-grid">
-                <div class="post-card">
-                    <div class="post-image">
-                        <img src="post4.png" alt="Universal">
-                        <div class="post-badge">Новое</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-date">5 июля 2025</div>
-                        <h3 class="post-title">Оружие & Интерьеры</h3>
-                        <p class="post-text">
-                            Новое обновление принесло в игру: оружие, систему перемещения в интерьеры, ремейк персонажа, обновленный HUD здоровья, а также много технических доработок!
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">Крупное обновление</span>
+                <a href="updates/weapons-interiors.html" class="post-link">
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="post4.png" alt="Universal">
+                            <div class="post-badge">Новое</div>
                         </div>
+                        <div class="post-content">
+                            <div class="post-date">5 июля 2025</div>
+                            <h3 class="post-title">Оружие & Интерьеры</h3>
+                            <p class="post-text">
+                                Новое обновление принесло в игру: оружие, систему перемещения в интерьеры, ремейк персонажа, обновленный HUD здоровья, а также много технических доработок!
+                            </p>
+                            <div class="post-tags">
+                                <span class="tag">Большое Обновление</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a class="post-link">
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="post3.png" alt="Universal">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-date">13 июня 2025</div>
+                            <h3 class="post-title">Обновление света для автомобилей</h3>
+                            <p class="post-text">
+                                Новое обновление принесло в игру: фары для автомобилей, аварийные стоп сигналы и мигалки для служебного транспорта, новый спидометр и индикаторы!
+                            </p>
+                            <div class="post-tags">
+                                <span class="tag">Обновление</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a class="post-link">
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="post2.png" alt="Игровой мир">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-date">10 мая 2025</div>
+                            <h3 class="post-title">Автомобильное Обновление</h3>
+                            <p class="post-text">
+                               Вышло новое обновление, в котором было добавлено: Автомобили, обновленное главное меню, HUD Здоровья и новые пропы!
+                            </p>
+                            <div class="post-tags">
+                                <span class="tag">Большое Обновление</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a class="post-link">
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="post1.png" alt="Игровой мир">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-date">27 апреля 2025</div>
+                            <h3 class="post-title">Запуск сайта</h3>
+                            <p class="post-text">
+                              Долгожданный момент настал — мы запускаем сайт, где вы сможете найти всё самое важное о мире Aetheris. Здесь будут публиковаться последние новости, анонсы обновлений.
+                            </p>
+                            <div class="post-tags">
+                                <span class="tag">Сайт</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="studio-section fade-in" id="studio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nelik Studio</h2>
+                <p class="section-subtitle">Команда разработчиков и их Discord</p>
+            </div>
+            
+            <div class="studio-category">
+                <h3 class="category-title">Разработка Aetheris Sandbox</h3>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <img src="Lelik.png" alt="Lelik" class="team-avatar">
+                        <h3 class="team-name">Lelik</h3>
+                        <p class="team-role">Главный разработчик</p>
+                        <p class="team-description">Программирование, дизайн игры, архитектура проекта</p>
+                        <p class="team-description">@l_e_l_i_k</p>
+                    </div>
+                    <div class="team-card">
+                        <img src="TimAVX.png" alt="TimAVX" class="team-avatar">
+                        <h3 class="team-name">TimAVX</h3>
+                        <p class="team-role">3D Моделлер</p>
+                        <p class="team-description">Создание 3D моделей и визуальных элементов</p>
+                        <p class="team-description">@crab2008</p>
                     </div>
                 </div>
-                <div class="post-card">
-                    <div class="post-image">
-                        <img src="post3.png" alt="Universal">
+            </div>
+            
+            <div class="studio-category">
+                <h3 class="category-title">Другие участники студии</h3>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <img src="Noname.png" alt="TimAVX" class="team-avatar">
+                        <h3 class="team-name">Ноунейм</h3>
+                        <p class="team-role">Game Support</p>
+                        <p class="team-description">Поддержка игрового комьюнити и модерация дискорд сервера</p>
+                        <p class="team-description">@nouneim0094</p>
                     </div>
-                    <div class="post-content">
-                        <div class="post-date">13 июня 2025</div>
-                        <h3 class="post-title">Небольшое обновление! Light Update</h3>
-                        <p class="post-text">
-                            Новое обновление принесло в игру: фары для автомобилей, аварийные стоп сигналы и мигалки для служебного транспорта, новый спидометр и индикаторы!
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">Обычное Обновление</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="post-card">
-                    <div class="post-image">
-                        <img src="post2.png" alt="Игровой мир">
-                    </div>
-                    <div class="post-content">
-                        <div class="post-date">10 мая 2025</div>
-                        <h3 class="post-title">Новое обновление! (DevBlog)</h3>
-                        <p class="post-text">
-                            Вышло новое обновление, в котором было добавлено: Автомобили, обновленное главное меню, HUD Здоровья и новые пропы!
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">Крупное Обновление</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="post-card">
-                    <div class="post-image">
-                        <img src="post1.png" alt="Игровой мир">
-                    </div>
-                    <div class="post-content">
-                        <div class="post-date">27 апреля 2025</div>
-                        <h3 class="post-title">Официальный запуск сайта Aetheris Sandbox!</h3>
-                        <p class="post-text">
-                            Долгожданный момент настал — мы запускаем сайт, где вы сможете найти всё самое важное о мире Aetheris. Здесь будут публиковаться последние новости, анонсы обновлений.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">Сайт</span>
-                        </div>
+                    <div class="team-card">
+                        <img src="Darno.png" alt="TimAVX" class="team-avatar">
+                        <h3 class="team-name">Darno</h3>
+                        <p class="team-role">Дизайнер</p>
+                        <p class="team-description">Рисование UI элементов, 2D текстур, Pixel-Art</p>
+                        <p class="team-description">@darno_</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="faq-section" id="faq">
+    <div class="section-divider"></div>
+
+    <section class="faq-section fade-in" id="faq">
         <div class="container">
             <div class="section-title">
-                <h2>Часто задаваемые вопросы</h2>
+                <h2>Частые вопросы</h2>
+                <p class="section-subtitle">Все, что вам нужно знать</p>
             </div>
             <div class="faq-container">
                 <div class="faq-item">
@@ -133,27 +240,31 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Aetheris Sandbox - это уникальная игровая песочница с открытым миром, где вы можете создавать, исследовать и взаимодействовать с окружением. Игра предлагает полную свободу действий и множество возможностей для творчества.</p>
+                        <div class="answer-content">
+                            <p>Это минималистичная игровая песочница, где вы можете создавать, ездить на автомобилях и взаимодействовать с окружающими вас игроками.</p>
+                        </div>
                     </div>
                 </div>
-                
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>На каких платформах доступна игра?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>В настоящее время игра доступна только на PC (Windows).</p>
+                        <div class="answer-content">
+                            <p>В настоящее время игра доступна только на PC (Windows).</p>
+                        </div>
                     </div>
                 </div>
-                
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>Когда выйдет игра?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Первое закрытое бета-тестирование планируется осенью 2025 года.</p>
+                        <div class="answer-content">
+                            <p>Первое закрытое бета-тестирование планируется осенью 2025 года.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -168,17 +279,18 @@
                     <span>Aetheris Sandbox</span>
                 </div>
                 <div class="footer-links">
-                    <a href="#">Главная</a>
+                    <a href="#core">Главная</a>
                     <a href="#news">Новости</a>
                     <a href="#faq">FAQ</a>
+                    <a href="#studio">Nelik Studio</a>
                     <a href="https://discord.gg/y63qupBrAe" target="_blank">Discord</a>
                 </div>
-                <p class="copyright">© 2025 Aetheris Sandbox. Все права защищены.</p>
+                <p class="copyright">© 2025 Nelik Studio. Aetheris Sandbox - все права защищены.</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </body>
 </html>
