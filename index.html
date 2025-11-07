@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aetheris Sandbox</title>
-<meta name="description" content="Aetheris Sandbox — минималистичная многопользовательская игра-песочница с системой строительства, автомобилями и свободой творчества. Присоединяйся к бета-тесту!">
-<meta name="keywords" content="Aetheris Sandbox, игра-песочница, строительство, автомобили, мультиплеер, indie, indie game, Nelik Studio">
+<meta name="description" content="Aetheris Sandbox — минималистичная многопользовательская игра-песочница с системой строительства, автомобилями и свободой творчества. Присоединяйся к бета-тесту!" data-i18n="meta.description" data-i18n-attr="content">
+<meta name="keywords" content="Aetheris Sandbox, игра-песочница, строительство, автомобили, мультиплеер, indie, indie game, Nelik Studio" data-i18n="meta.keywords" data-i18n-attr="content">
 <meta name="author" content="Nelik Studio">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://aetheris-sandbox.ru">
@@ -24,28 +24,33 @@
         <div class="container header-content">
             <div class="logo floating">
                 <img src="icon_core.png" alt="Aetheris Sandbox Logo">
-                <h1>Aetheris Sandbox</h1>
+                <h1 data-i18n="site.title">Aetheris Sandbox</h1>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#core" class="active">Главная</a></li>
-                    <li><a href="#news">Новости</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#studio">Nelik Studio</a></li>
+                    <li><a href="#core" class="active" data-i18n="nav.home">Главная</a></li>
+                    <li><a href="#news" data-i18n="nav.news">Новости</a></li>
+                    <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+                    <li><a href="#studio" data-i18n="nav.studio">Nelik Studio</a></li>
                 </ul>
             </nav>
+
+            <div class="lang-switcher" aria-label="Language switcher">
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
         </div>
     </header>
 
     <section class="hero" id="core">
         <div class="container hero-content">
-            <h2>Исследуйте Aetheris Sandbox</h2>
-            <p>Минималистичная песочница с акцентом на свободу творчества и строительства.</p>
+            <h2 data-i18n="hero.title">Исследуйте Aetheris Sandbox</h2>
+            <p data-i18n="hero.desc">Минималистичная песочница с акцентом на свободу творчества и строительства.</p>
             <div class="hero-buttons">
-                <a href="#news" class="btn btn-solid glow">
+                <a href="#news" class="btn btn-solid glow" data-i18n="btn.news">
                     <i class="fas fa-newspaper"></i> Новости
                 </a>
-                <a href="https://discord.gg/y63qupBrAe" class="btn glow" target="_blank">
+                <a href="https://discord.gg/y63qupBrAe" class="btn glow" target="_blank" data-i18n="btn.discord">
                     <i class="fab fa-discord"></i> Discord
                 </a>
             </div>
@@ -57,37 +62,37 @@
     <section class="features-section fade-in" id="features">
         <div class="container">
             <div class="section-title">
-                <h2>Ключевые возможности</h2>
-                <p class="section-subtitle">Что делает Aetheris Sandbox уникальным</p>
+                <h2 data-i18n="features.title">Ключевые возможности</h2>
+                <p class="section-subtitle" data-i18n="features.subtitle">Что делает Aetheris Sandbox уникальным</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-globe"></i>
                     </div>
-                    <h3 class="feature-title">Активные разработчики</h3>
-                    <p class="feature-text">Поддержка игры и разработка новых механик будет продолжаться еще долгое время.</p>
+                    <h3 class="feature-title" data-i18n="feature.dev">Активные разработчики</h3>
+                    <p class="feature-text" data-i18n="feature.dev_text">Поддержка игры и разработка новых механик будет продолжаться еще долгое время.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-tools"></i>
                     </div>
-                    <h3 class="feature-title">Система строительства</h3>
-                    <p class="feature-text">Стройте и изменяйте карту вокруг себя с помощью различных инструментов.</p>
+                    <h3 class="feature-title" data-i18n="feature.build">Система строительства</h3>
+                    <p class="feature-text" data-i18n="feature.build_text">Стройте и изменяйте карту вокруг себя с помощью различных инструментов.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3 class="feature-title">Мультиплеер</h3>
-                    <p class="feature-text">Играйте с друзьями или присоединяйтесь к сообществу создателей.</p>
+                    <h3 class="feature-title" data-i18n="feature.multiplayer">Мультиплеер</h3>
+                    <p class="feature-text" data-i18n="feature.multiplayer_text">Играйте с друзьями или присоединяйтесь к сообществу создателей.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-sliders-h"></i>
                     </div>
-                    <h3 class="feature-title">Полная свобода действий</h3>
-                    <p class="feature-text">Делайте что угодно, развлекайтесь и просто получайте удовольствие.</p>
+                    <h3 class="feature-title" data-i18n="feature.freedom">Полная свобода действий</h3>
+                    <p class="feature-text" data-i18n="feature.freedom_text">Делайте что угодно, развлекайтесь и просто получайте удовольствие.</p>
                 </div>
             </div>
         </div>
@@ -98,23 +103,23 @@
     <section class="posts-section fade-in" id="news">
         <div class="container">
             <div class="section-title">
-                <h2>Последние обновления</h2>
-                <p class="section-subtitle">Следите за развитием проекта</p>
+                <h2 data-i18n="posts.title">Последние обновления</h2>
+                <p class="section-subtitle" data-i18n="posts.subtitle">Следите за развитием проекта</p>
             </div>
             <div class="posts-grid">
                     <a href="updates/rooms_update.html" class="post-link">
                     <div class="post-card">
                         <div class="post-image">
-                            <img src="post6.png" alt="Universal">
-                            <div class="post-badge">Новое</div>
-                        </div>
+                                <img src="post6.png" alt="Universal" data-i18n="post1.img_alt" data-i18n-attr="alt">
+                                <div class="post-badge" data-i18n="badge.new">Новое</div>
+                            </div>
                         <div class="post-content">
-                            <div class="post-date">20 Сентября 2025</div>
-                            <h3 class="post-title">Комнаты & Перекраска</h3>
-                            <p class="post-text">
+                            <div class="post-date" data-i18n="post1.date">20 Сентября 2025</div>
+                            <h3 class="post-title" data-i18n="post1.title">Комнаты & Перекраска</h3>
+                            <p class="post-text" data-i18n="post1.text">
                              Была добавлена система комнат, покраска автомобилей, воспроизведен небольшой фикс багов. Небольшое улучшение графики. 
                             <div class="post-tags">
-                                <span class="tag">Обновление</span>
+                                <span class="tag" data-i18n="post1.tag">Обновление</span>
                             </div>
                         </div>
                     </div>
@@ -122,15 +127,15 @@
                 <a href="updates/chat-command.html" class="post-link">
                     <div class="post-card">
                         <div class="post-image">
-                            <img src="post5.png" alt="Universal">
+                            <img src="post5.png" alt="Universal" data-i18n="post2.img_alt" data-i18n-attr="alt">
                         </div>
                         <div class="post-content">
-                            <div class="post-date">9 августа 2025</div>
-                            <h3 class="post-title">Чат & Команды</h3>
-                            <p class="post-text">
+                            <div class="post-date" data-i18n="post2.date">9 августа 2025</div>
+                            <h3 class="post-title" data-i18n="post2.title">Чат & Команды</h3>
+                            <p class="post-text" data-i18n="post2.text">
                                В новом обновлении появился чат, команды а также различное множество нововведений! Читайте дальше...
                             <div class="post-tags">
-                                <span class="tag">Большое Обновление</span>
+                                <span class="tag" data-i18n="post2.tag">Большое Обновление</span>
                             </div>
                         </div>
                     </div>
@@ -138,16 +143,16 @@
                 <a href="updates/weapons-interiors.html" class="post-link">
                     <div class="post-card">
                         <div class="post-image">
-                            <img src="post4.png" alt="Universal">
+                            <img src="post4.png" alt="Universal" data-i18n="post3.img_alt" data-i18n-attr="alt">
                         </div>
                         <div class="post-content">
-                            <div class="post-date">5 июля 2025</div>
-                            <h3 class="post-title">Оружие & Интерьеры</h3>
-                            <p class="post-text">
+                            <div class="post-date" data-i18n="post3.date">5 июля 2025</div>
+                            <h3 class="post-title" data-i18n="post3.title">Оружие & Интерьеры</h3>
+                            <p class="post-text" data-i18n="post3.text">
                                 Новое обновление принесло в игру: оружие, систему перемещения в интерьеры, ремейк персонажа, обновленный HUD здоровья, а также много технических доработок!
                             </p>
                             <div class="post-tags">
-                                <span class="tag">Большое Обновление</span>
+                                <span class="tag" data-i18n="post3.tag">Большое Обновление</span>
                             </div>
                         </div>
                     </div>
@@ -155,16 +160,16 @@
                 <a href="404.html" class="post-link">
                     <div class="post-card">
                         <div class="post-image">
-                            <img src="post3.png" alt="Universal">
+                            <img src="post3.png" alt="Universal" data-i18n="post4.img_alt" data-i18n-attr="alt">
                         </div>
                         <div class="post-content">
-                            <div class="post-date">13 июня 2025</div>
-                            <h3 class="post-title">Обновление света для автомобилей</h3>
-                            <p class="post-text">
+                            <div class="post-date" data-i18n="post4.date">13 июня 2025</div>
+                            <h3 class="post-title" data-i18n="post4.title">Обновление света для автомобилей</h3>
+                            <p class="post-text" data-i18n="post4.text">
                                 Новое обновление принесло в игру: фары для автомобилей, аварийные стоп сигналы и мигалки для служебного транспорта, новый спидометр и индикаторы!
                             </p>
                             <div class="post-tags">
-                                <span class="tag">Обновление</span>
+                                <span class="tag" data-i18n="post4.tag">Обновление</span>
                             </div>
                         </div>
                     </div>
@@ -172,16 +177,16 @@
                 <a href="404.html" class="post-link">
                     <div class="post-card">
                         <div class="post-image">
-                            <img src="post2.png" alt="Игровой мир">
+                            <img src="post2.png" alt="Игровой мир" data-i18n="post5.img_alt" data-i18n-attr="alt">
                         </div>
                         <div class="post-content">
-                            <div class="post-date">10 мая 2025</div>
-                            <h3 class="post-title">Автомобильное Обновление</h3>
-                            <p class="post-text">
+                            <div class="post-date" data-i18n="post5.date">10 мая 2025</div>
+                            <h3 class="post-title" data-i18n="post5.title">Автомобильное Обновление</h3>
+                            <p class="post-text" data-i18n="post5.text">
                                Вышло новое обновление, в котором было добавлено: Автомобили, обновленное главное меню, HUD Здоровья и новые пропы!
                             </p>
                             <div class="post-tags">
-                                <span class="tag">Большое Обновление</span>
+                                <span class="tag" data-i18n="post5.tag">Большое Обновление</span>
                             </div>
                         </div>
                     </div>
@@ -189,16 +194,16 @@
                 <a href="404.html" class="post-link">
                     <div class="post-card">
                         <div class="post-image">
-                            <img src="post1.png" alt="Игровой мир">
+                            <img src="post1.png" alt="Игровой мир" data-i18n="post6.img_alt" data-i18n-attr="alt">
                         </div>
                         <div class="post-content">
-                            <div class="post-date">27 апреля 2025</div>
-                            <h3 class="post-title">Запуск сайта</h3>
-                            <p class="post-text">
+                            <div class="post-date" data-i18n="post6.date">27 апреля 2025</div>
+                            <h3 class="post-title" data-i18n="post6.title">Запуск сайта</h3>
+                            <p class="post-text" data-i18n="post6.text">
                               Долгожданный момент настал — мы запускаем сайт, где вы сможете найти всё самое важное о мире Aetheris. Здесь будут публиковаться последние новости, анонсы обновлений.
                             </p>
                             <div class="post-tags">
-                                <span class="tag">Сайт</span>
+                                <span class="tag" data-i18n="post6.tag">Сайт</span>
                             </div>
                         </div>
                     </div>
@@ -212,46 +217,46 @@
     <section class="studio-section fade-in" id="studio">
         <div class="container">
             <div class="section-title">
-                <h2>Nelik Studio</h2>
-                <p class="section-subtitle">Команда разработчиков и их Discord</p>
+                <h2 data-i18n="studio.title">Nelik Studio</h2>
+                <p class="section-subtitle" data-i18n="studio.subtitle">Команда разработчиков и их Discord</p>
             </div>
             
             <div class="studio-category">
-                <h3 class="category-title">Разработка Aetheris Sandbox</h3>
+                <h3 class="category-title" data-i18n="studio.category_dev">Разработка Aetheris Sandbox</h3>
                 <div class="team-grid">
                     <div class="team-card">
                         <img src="Lelik.png" alt="Lelik" class="team-avatar">
                         <h3 class="team-name">Lelik</h3>
-                        <p class="team-role">Главный разработчик</p>
-                        <p class="team-description">Программирование, дизайн игры, архитектура проекта</p>
-                        <p class="team-description">@l_e_l_i_k</p>
+                        <p class="team-role" data-i18n="team.lelik.role">Главный разработчик</p>
+                        <p class="team-description" data-i18n="team.lelik.desc">Программирование, дизайн игры, архитектура проекта</p>
+                        <p class="team-description" data-i18n="team.lelik.handle">@l_e_l_i_k</p>
                     </div>
                     <div class="team-card">
                         <img src="TimAVX.png" alt="TimAVX" class="team-avatar">
                         <h3 class="team-name">TimAVX</h3>
-                        <p class="team-role">3D Моделлер</p>
-                        <p class="team-description">Создание 3D моделей и визуальных элементов</p>
-                        <p class="team-description">@crab2008</p>
+                        <p class="team-role" data-i18n="team.tim.role">3D Моделлер</p>
+                        <p class="team-description" data-i18n="team.tim.desc">Создание 3D моделей и визуальных элементов</p>
+                        <p class="team-description" data-i18n="team.tim.handle">@crab2008</p>
                     </div>
                 </div>
             </div>
             
             <div class="studio-category">
-                <h3 class="category-title">Другие участники студии</h3>
+                <h3 class="category-title" data-i18n="studio.category_others">Другие участники студии</h3>
                 <div class="team-grid">
                     <div class="team-card">
                         <img src="Noname.png" alt="TimAVX" class="team-avatar">
                         <h3 class="team-name">Ноунейм</h3>
-                        <p class="team-role">Game Support</p>
-                        <p class="team-description">Поддержка игрового комьюнити и модерация дискорд сервера</p>
-                        <p class="team-description">@nouneim0094</p>
+                        <p class="team-role" data-i18n="team.noname.role">Game Support</p>
+                        <p class="team-description" data-i18n="team.noname.desc">Поддержка игрового комьюнити и модерация дискорд сервера</p>
+                        <p class="team-description" data-i18n="team.noname.handle">@nouneim0094</p>
                     </div>
                     <div class="team-card">
                         <img src="Darno.png" alt="TimAVX" class="team-avatar">
                         <h3 class="team-name">Darno</h3>
-                        <p class="team-role">Дизайнер</p>
-                        <p class="team-description">Рисование UI элементов, 2D текстур, Pixel-Art</p>
-                        <p class="team-description">@darno_</p>
+                        <p class="team-role" data-i18n="team.darno.role">Дизайнер</p>
+                        <p class="team-description" data-i18n="team.darno.desc">Рисование UI элементов, 2D текстур, Pixel-Art</p>
+                        <p class="team-description" data-i18n="team.darno.handle">@darno_</p>
                     </div>
                 </div>
             </div>
@@ -263,40 +268,40 @@
     <section class="faq-section fade-in" id="faq">
         <div class="container">
             <div class="section-title">
-                <h2>Частые вопросы</h2>
-                <p class="section-subtitle">Все, что вам нужно знать</p>
+                <h2 data-i18n="faq.title">Частые вопросы</h2>
+                <p class="section-subtitle" data-i18n="faq.subtitle">Все, что вам нужно знать</p>
             </div>
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Что такое Aetheris Sandbox?</h3>
+                        <h3 data-i18n="faq.q1.q">Что такое Aetheris Sandbox?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
                         <div class="answer-content">
-                            <p>Это минималистичная игровая песочница, где вы можете создавать, ездить на автомобилях и взаимодействовать с окружающими вас игроками.</p>
+                            <p data-i18n="faq.q1.a">Это минималистичная игровая песочница, где вы можете создавать, ездить на автомобилях и взаимодействовать с окружающими вас игроками.</p>
                         </div>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>На каких платформах доступна игра?</h3>
+                        <h3 data-i18n="faq.q2.q">На каких платформах доступна игра?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
                         <div class="answer-content">
-                            <p>В настоящее время игра доступна только на PC (Windows).</p>
+                            <p data-i18n="faq.q2.a">В настоящее время игра доступна только на PC (Windows).</p>
                         </div>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Когда выйдет игра?</h3>
+                        <h3 data-i18n="faq.q3.q">Когда выйдет игра?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
                         <div class="answer-content">
-                            <p>Первое закрытое бета-тестирование планируется осенью 2025 года.</p>
+                            <p data-i18n="faq.q3.a">Первое закрытое бета-тестирование планируется осенью 2025 года.</p>
                         </div>
                     </div>
                 </div>
@@ -309,16 +314,16 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <img src="icon_core.png" alt="Aetheris Sandbox Logo">
-                    <span>Aetheris Sandbox</span>
+                    <span data-i18n="site.title">Aetheris Sandbox</span>
                 </div>
                 <div class="footer-links">
-                    <a href="#core">Главная</a>
-                    <a href="#news">Новости</a>
-                    <a href="#faq">FAQ</a>
-                    <a href="#studio">Nelik Studio</a>
-                    <a href="https://discord.gg/y63qupBrAe" target="_blank">Discord</a>
+                    <a href="#core" data-i18n="nav.home">Главная</a>
+                    <a href="#news" data-i18n="nav.news">Новости</a>
+                    <a href="#faq" data-i18n="nav.faq">FAQ</a>
+                    <a href="#studio" data-i18n="nav.studio">Nelik Studio</a>
+                    <a href="https://discord.gg/y63qupBrAe" target="_blank" data-i18n="btn.discord">Discord</a>
                 </div>
-                <p class="copyright">© 2025 Nelik Studio. Aetheris Sandbox - все права защищены.</p>
+                <p class="copyright" data-i18n="footer.copyright">© 2025 Nelik Studio. Aetheris Sandbox - все права защищены.</p>
             </div>
         </div>
     </footer>

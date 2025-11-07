@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Страница не найдена - Aetheris Sandbox</title>
+    <title data-i18n="meta.title.404">Страница не найдена - Aetheris Sandbox</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -19,16 +19,20 @@
         <div class="container header-content">
             <div class="logo floating">
                 <img src="icon_core.png" alt="Aetheris Sandbox Logo">
-                <h1>Aetheris Sandbox</h1>
+                <h1 data-i18n="site.title">Aetheris Sandbox</h1>
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html#core">Главная</a></li>
-                    <li><a href="index.html#news">Новости</a></li>
-                    <li><a href="index.html#faq">FAQ</a></li>
-                    <li><a href="index.html#studio">Nelik Studio</a></li>
+                    <li><a href="index.html#core" data-i18n="nav.home">Главная</a></li>
+                    <li><a href="index.html#news" data-i18n="nav.news">Новости</a></li>
+                    <li><a href="index.html#faq" data-i18n="nav.faq">FAQ</a></li>
+                    <li><a href="index.html#studio" data-i18n="nav.studio">Nelik Studio</a></li>
                 </ul>
             </nav>
+            <div class="lang-switcher" aria-label="Language switcher">
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
         </div>
     </header>
 
@@ -39,13 +43,13 @@
                     <img src="Radio.png" alt="404" class="floating" style="animation-duration: 6s;">
                     <div class="not-found-number">404</div>
                 </div>
-                <h1>Безграничная пустота</h1>
-                <p>Страница, которую вы ищете, была удалена или никогда не существовала в этой вселенной.</p>
+                <h1 data-i18n="404.title">Безграничная пустота</h1>
+                <p data-i18n="404.desc">Страница, которую вы ищете, была удалена или никогда не существовала в этой вселенной.</p>
                 <div class="not-found-buttons">
-                    <a href="index.html" class="btn btn-solid glow">
+                    <a href="index.html" class="btn btn-solid glow" data-i18n="404.btn.home">
                         <i class="fas fa-home"></i> Вернуться на главную
                     </a>
-                    <a href="https://discord.gg/y63qupBrAe" class="btn glow" target="_blank">
+                    <a href="https://discord.gg/y63qupBrAe" class="btn glow" target="_blank" data-i18n="404.btn.discord">
                         <i class="fab fa-discord"></i> Наш Discord
                     </a>
                 </div>
@@ -58,16 +62,16 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <img src="icon_core.png" alt="Aetheris Sandbox Logo">
-                    <span>Aetheris Sandbox</span>
+                    <span data-i18n="site.title">Aetheris Sandbox</span>
                 </div>
                 <div class="footer-links">
-                    <a href="index.html#core">Главная</a>
-                    <a href="index.html#news">Новости</a>
-                    <a href="index.html#faq">FAQ</a>
-                    <a href="index.html#studio">Nelik Studio</a>
-                    <a href="https://discord.gg/y63qupBrAe" target="_blank">Discord</a>
+                    <a href="index.html#core" data-i18n="nav.home">Главная</a>
+                    <a href="index.html#news" data-i18n="nav.news">Новости</a>
+                    <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
+                    <a href="index.html#studio" data-i18n="nav.studio">Nelik Studio</a>
+                    <a href="https://discord.gg/y63qupBrAe" target="_blank" data-i18n="btn.discord">Discord</a>
                 </div>
-                <p class="copyright">© 2025 Nelik Studio. Aetheris Sandbox - все права защищены.</p>
+                <p class="copyright" data-i18n="footer.copyright">© 2025 Nelik Studio. Aetheris Sandbox - все права защищены.</p>
             </div>
         </div>
     </footer>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Комнаты & Перекраска - Aetheris Sandbox</title>
+    <title data-i18n="update.rooms_title">Комнаты & Перекраска - Aetheris Sandbox</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -55,16 +55,20 @@
         <div class="container header-content">
             <div class="logo floating">
                 <img src="../icon_core.png" alt="Aetheris Sandbox Logo">
-                <h1>Aetheris Sandbox</h1>
+                <h1 data-i18n="site.title">Aetheris Sandbox</h1>
             </div>
             <nav>
                 <ul>
-                    <li><a href="../index.html#core">Главная</a></li>
-                    <li><a href="../index.html#news">Новости</a></li>
-                    <li><a href="../index.html#faq">FAQ</a></li>
-                    <li><a href="../index.html#studio">Nelik Studio</a></li>
+                    <li><a href="../index.html#core" data-i18n="nav.home">Главная</a></li>
+                    <li><a href="../index.html#news" data-i18n="nav.news">Новости</a></li>
+                    <li><a href="../index.html#faq" data-i18n="nav.faq">FAQ</a></li>
+                    <li><a href="../index.html#studio" data-i18n="nav.studio">Nelik Studio</a></li>
                 </ul>
             </nav>
+            <div class="lang-switcher" aria-label="Language switcher">
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
         </div>
     </header>
 
@@ -75,54 +79,54 @@
             <div class="content-overlay">
                 <!-- Ваш контент -->
                 <div class="update-header">
-                    <div class="update-badge">Обновление</div>
-                    <h1>Комнаты & Перекраска</h1>
+                    <div class="update-badge" data-i18n="update.badge">Обновление</div>
+                    <h1 data-i18n="update.rooms_title">Комнаты & Перекраска</h1>
                     <div class="update-meta">
-                        <span class="update-date"><i class="far fa-calendar-alt"></i> 20 Сентября 2025</span>
-                        <span class="update-author"><i class="fas fa-user"></i> Автор: Lelik</span>
+                        <span class="update-date" data-i18n="update.date"><i class="far fa-calendar-alt"></i> 20 Сентября 2025</span>
+                        <span class="update-author" data-i18n="update.author"><i class="fas fa-user"></i> Автор: Lelik</span>
                     </div>
                 </div>
 
                 <div class="update-content">
-                    <img src="../post6.png" alt="Чат & Команды" class="update-featured-image">
+                    <img src="../post6.png" alt="Комнаты & Перекраска" class="update-featured-image" data-i18n="update.featured_alt" data-i18n-attr="alt">
                     
                     <div class="update-text">
-                        <h2>Комнаты</h2>
-                        <p>Добавлены комнаты:</p>
+                        <h2 data-i18n="rooms.heading.rooms">Комнаты</h2>
+                        <p data-i18n="rooms.desc.rooms">Добавлены комнаты:</p>
                         <ul>
-                            <li>Каждый игрок может создать свою комнату, указав название, пароль и кол-во игроков</li>
-                            <li>Комнаты реализованы через сервис Steam</li>
+                            <li data-i18n="rooms.li.create_room">Каждый игрок может создать свою комнату, указав название, пароль и кол-во игроков</li>
+                            <li data-i18n="rooms.li.steam">Комнаты реализованы через сервис Steam</li>
                         </ul>
 
-                        <h2>Перекраска автомобилей</h2>
-                        <p>Подъехав к мастерской вы сможете перекрасить ваш автомобиль в любой цвет</p>
+                        <h2 data-i18n="rooms.heading.repaint">Перекраска автомобилей</h2>
+                        <p data-i18n="rooms.desc.repaint">Подъехав к мастерской вы сможете перекрасить ваш автомобиль в любой цвет</p>
                         <ul>
-                            <li>Перекраска производится с помощью RGB панели</li>
+                            <li data-i18n="rooms.li.rgb">Перекраска производится с помощью RGB панели</li>
                         </ul>
                         
-                        <h2>Добавлено</h2>
-                        <p>Что добавлено еще:</p>
+                        <h2 data-i18n="rooms.heading.added">Добавлено</h2>
+                        <p data-i18n="rooms.desc.added">Что добавлено еще:</p>
                         <ul>
-                            <li>Команда /help</li>
-                            <li>Новый автомобилль RS3</li>
-                            <li>p.s сайт был переведен на домен aetheris-sandbox.ru</li>
+                            <li data-i18n="rooms.added.help">Команда /help</li>
+                            <li data-i18n="rooms.added.rs3">Новый автомобилль RS3</li>
+                            <li data-i18n="rooms.added.ps">p.s сайт был переведен на домен aetheris-sandbox.ru</li>
                         </ul>
                         
                         
                         <div class="update-gallery">
                             <div class="gallery-item">
-                                <img src="update5.png" alt="Скриншот 1">
-                                <p>Система комнат</p>
+                                <img src="update5.png" alt="Скриншот 1" data-i18n="rooms.gallery1_img" data-i18n-attr="alt">
+                                <p data-i18n="rooms.gallery1">Система комнат</p>
                             </div>
                             <div class="gallery-item">
-                                <img src="update6.png" alt="Скриншот 2">
-                                <p>Система покраски автомобилей</p>
+                                <img src="update6.png" alt="Скриншот 2" data-i18n="rooms.gallery2_img" data-i18n-attr="alt">
+                                <p data-i18n="rooms.gallery2">Система покраски автомобилей</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="update-footer">
-                        <a href="../index.html#news" class="btn btn-solid glow">
+                        <a href="../index.html#news" class="btn btn-solid glow" data-i18n="update.back_to_news">
                             <i class="fas fa-arrow-left"></i> Назад к новостям
                         </a>
                     </div>
@@ -136,16 +140,16 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <img src="../icon_core.png" alt="Aetheris Sandbox Logo">
-                    <span>Aetheris Sandbox</span>
+                    <span data-i18n="site.title">Aetheris Sandbox</span>
                 </div>
                 <div class="footer-links">
-                    <a href="../index.html#core">Главная</a>
-                    <a href="../index.html#news">Новости</a>
-                    <a href="../index.html#faq">FAQ</a>
-                    <a href="../index.html#studio">Nelik Studio</a>
-                    <a href="https://discord.gg/y63qupBrAe" target="_blank">Discord</a>
+                    <a href="../index.html#core" data-i18n="nav.home">Главная</a>
+                    <a href="../index.html#news" data-i18n="nav.news">Новости</a>
+                    <a href="../index.html#faq" data-i18n="nav.faq">FAQ</a>
+                    <a href="../index.html#studio" data-i18n="nav.studio">Nelik Studio</a>
+                    <a href="https://discord.gg/y63qupBrAe" target="_blank" data-i18n="btn.discord">Discord</a>
                 </div>
-                <p class="copyright">© 2025 Nelik Studio. Aetheris Sandbox - все права защищены.</p>
+                <p class="copyright" data-i18n="footer.copyright">© 2025 Nelik Studio. Aetheris Sandbox - все права защищены.</p>
             </div>
         </div>
     </footer>
