@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="update.major_title">Закрытое Бета Тестирование - Aetheris Sandbox</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="../icon_core.png" type="image/png">
+    <style>
+        /* Новый подход с fixed фоном и scale эффектом */
+        .parallax-container {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .fixed-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../update_main.png');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            opacity: 0.3;
+            transform: scale(1);
+            transition: transform 0.1s linear;
+            will-change: transform;
+        }
+        
+        .content-overlay {
+            background-color: rgba(30, 30, 30, 0.85);
+            border-radius: 12px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            margin: 2rem auto;
+            max-width: 1200px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <header>
+        <div class="container header-content">
+            <div class="logo floating">
+                <img src="../icon_core.png" alt="Aetheris Sandbox Logo">
+                <h1 data-i18n="site.title">Aetheris Sandbox</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html#core" data-i18n="nav.home">Главная</a></li>
+                    <li><a href="../index.html#news" data-i18n="nav.news">Новости</a></li>
+                    <li><a href="../index.html#faq" data-i18n="nav.faq">FAQ</a></li>
+                    <li><a href="../index.html#studio" data-i18n="nav.studio">Nelik Studio</a></li>
+                </ul>
+            </nav>
+            <div class="lang-switcher" aria-label="Language switcher">
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="parallax-container">
+        <div class="fixed-background" id="js-background"></div>
+        
+        <div class="container">
+            <div class="content-overlay">
+                <!-- Ваш контент -->
+                <div class="update-header">
+                    <div class="update-badge" data-i18n="update.badge">Большое Обновление</div>
+                    <h1 data-i18n="update.major_title">Закрытое Бета Тестирование</h1>
+                    <div class="update-meta">
+                        <span class="update-date" data-i18n="update.date"><i class="far fa-calendar-alt"></i> 16 декабря 2025</span>
+                        <span class="update-author" data-i18n="update.author"><i class="fas fa-user"></i> Автор: Lelik</span>
+                    </div>
+                </div>
+
+                <div class="update-content">
+                    <img src="update7.png" alt="Крупное обновление" class="update-featured-image" data-i18n="update.featured_alt" data-i18n-attr="alt">
+                    
+                    <div class="update-text">
+                        <p data-i18n="major.intro">Успешно завершилось закрытое бета-тестирование с участием пятерки тестировщиков. Несмотря на выявленные проблемы, команда активно работает над их устранением. Протестирован и доработан весь новый контент, описанный ниже.</p>
+
+                        <h2 data-i18n="major.heading.weapons">Новое оружие: АК</h2>
+                        <p data-i18n="major.desc.weapons">Добавлено новое оружие с полной реализацией механики:</p>
+                        <ul>
+                            <li data-i18n="major.li.recoil">Отдача при стрельбе</li>
+                            <li data-i18n="major.li.spread">Реалистичный разброс выстрелов</li>
+                            <li data-i18n="major.li.shells">Визуализация вылетающих гильз</li>
+                            <li data-i18n="major.li.bullet_holes">Видимые дыры от пуль в окружении</li>
+                            <li data-i18n="major.li.anim_inspect">Анимация осмотра оружия</li>
+                            <li data-i18n="major.li.anim_reload">Анимация перезарядки</li>
+                        </ul>
+
+                        <h2 data-i18n="major.heading.vehicles">Улучшения автомобилей</h2>
+                        <p>Полная переработка системы автомобилей:</p>
+                        <ul>
+                            <li data-i18n="major.li.physics">Полностью переработана физика автомобилей</li>
+                            <li data-i18n="major.li.spawn">Машины можно спавнить из панели спавна</li>
+                            <li data-i18n="major.li.health">Новая система хп для автомобилей</li>
+                            <li data-i18n="major.li.crush">Теперь машинами можно раздавить игрока</li>
+                            <li data-i18n="major.li.lights">Доработанная система мигалок</li>
+                            <li data-i18n="major.li.mud">Грязь от колёс машины по грязи</li>
+                        </ul>
+
+                        <h2 data-i18n="major.heading.world">Окружение и атмосфера</h2>
+                        <p>Новые системы для динамического мира:</p>
+                        <ul>
+                            <li data-i18n="major.li.skybox">Новая заставка Nelik Studio</li>
+                            <li data-i18n="major.li.day_time">Смена времени суток (Утро-День-Вечер-Ночь)</li>
+                            <li data-i18n="major.li.custom_skybox">Новый кастомный Skybox</li>
+                            <li data-i18n="major.li.weather">Смена погоды (Облачно-Безоблачно-Дождь-Туман)</li>
+                        </ul>
+
+                        <h2 data-i18n="major.heading.graphics">Графика</h2>
+                        <p>Значительные улучшения визуальной части игры:</p>
+                        <ul>
+                            <li data-i18n="major.li.ambient_occlusion">Ambient Occlusion (Полностью переработана графика)</li>
+                        </ul>
+
+                        <h2 data-i18n="major.heading.audio">Звук</h2>
+                        <p>Новая звуковая система с динамическим аудио:</p>
+                        <ul>
+                            <li data-i18n="major.li.surface_sounds">Звук ходьбы теперь зависит от слоя объекта</li>
+                        </ul>
+
+                        <h2 data-i18n="major.heading.gameplay">Игровые механики</h2>
+                        <p>Новые возможности для геймплея:</p>
+                        <ul>
+                            <li data-i18n="major.li.physics_impulse">Некоторые объекты получают физический импульс от попадания оружием</li>
+                            <li data-i18n="major.li.build_system">Обновленная система строительства</li>
+                            <li data-i18n="major.li.ragdoll">Рэгдолл персонажа при смерти</li>
+                        </ul>
+                        
+                        <div class="update-gallery">
+                            <div class="gallery-item">
+                                <img src="update9.png" alt="Скриншот 1" data-i18n="major.gallery1_img" data-i18n-attr="alt">
+                                <p data-i18n="major.gallery1">Новое оружие АК в действии</p>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="update8.png" alt="Скриншот 2" data-i18n="major.gallery2_img" data-i18n-attr="alt">
+                                <p data-i18n="major.gallery2">Улучшенная физика автомобилей</p>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="update10.png" alt="Скриншот 3" data-i18n="major.gallery3_img" data-i18n-attr="alt">
+                                <p data-i18n="major.gallery3">Динамическая смена времени суток</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="update-footer">
+                        <a href="../index.html#news" class="btn btn-solid glow" data-i18n="update.back_to_news">
+                            <i class="fas fa-arrow-left"></i> Назад к новостям
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../icon_core.png" alt="Aetheris Sandbox Logo">
+                    <span data-i18n="site.title">Aetheris Sandbox</span>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html#core" data-i18n="nav.home">Главная</a>
+                    <a href="../index.html#news" data-i18n="nav.news">Новости</a>
+                    <a href="../index.html#faq" data-i18n="nav.faq">FAQ</a>
+                    <a href="../index.html#studio" data-i18n="nav.studio">Nelik Studio</a>
+                    <a href="https://discord.gg/y63qupBrAe" target="_blank" data-i18n="btn.discord">Discord</a>
+                </div>
+                <p class="copyright" data-i18n="footer.copyright">© 2025 Nelik Studio. Aetheris Sandbox - все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // Простой и надежный параллакс через scale
+        document.addEventListener('DOMContentLoaded', function() {
+            const bg = document.getElementById('js-background');
+            const parallaxSection = document.querySelector('.parallax-container');
+            const sectionHeight = parallaxSection.offsetHeight;
+            
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.pageYOffset;
+                const sectionOffset = parallaxSection.offsetTop;
+                const windowHeight = window.innerHeight;
+                
+                // Если мы в нужной секции
+                if (scrollPosition > sectionOffset - windowHeight && 
+                    scrollPosition < sectionOffset + sectionHeight) {
+                    
+                    // Плавное увеличение фона (от 1 до 1.05)
+                    const progress = (scrollPosition - sectionOffset + windowHeight) / (sectionHeight + windowHeight);
+                    const scale = 1 + progress * 0.05;
+                    bg.style.transform = `scale(${scale})`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
