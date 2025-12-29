@@ -22,37 +22,48 @@
     
     <header>
         <div class="container header-content">
-            <div class="logo floating">
+            <div class="logo">
                 <img src="icon_core.png" alt="Aetheris Sandbox Logo">
                 <h1 data-i18n="site.title">Aetheris Sandbox</h1>
             </div>
             <nav>
                 <ul>
                     <li><a href="#core" class="active" data-i18n="nav.home">Главная</a></li>
-                    <li><a href="#news" data-i18n="nav.news">Новости</a></li>
+                    <li><a href="#news" data-i18n="nav.news">Обновления</a></li>
                     <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
                     <li><a href="#studio" data-i18n="nav.studio">Nelik Studio</a></li>
                 </ul>
             </nav>
 
-            <div class="lang-switcher" aria-label="Language switcher">
-                <button class="lang-btn" data-lang="ru">RU</button>
-                <button class="lang-btn" data-lang="en">EN</button>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="header-actions" style="display:flex;align-items:center;gap:12px;">
+                <a href="https://discord.gg/y63qupBrAe" class="btn btn-solid" target="_blank" data-i18n="btn.discord">
+                    <i class="fab fa-discord"></i> <span class="btn-text"></span>
+                </a>
+                <div class="lang-switcher" aria-label="Language switcher">
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
             </div>
         </div>
     </header>
 
     <section class="hero" id="core">
         <div class="container hero-content">
-            <h2 data-i18n="hero.title">Исследуйте Aetheris Sandbox</h2>
-            <p data-i18n="hero.desc">Минималистичная песочница с акцентом на свободу творчества и строительства.</p>
-            <div class="hero-buttons">
-                <a href="#news" class="btn btn-solid glow" data-i18n="btn.news">
-                    <i class="fas fa-newspaper"></i> Новости
-                </a>
-                <a href="https://discord.gg/y63qupBrAe" class="btn glow" target="_blank" data-i18n="btn.discord">
-                    <i class="fab fa-discord"></i> Discord
-                </a>
+            <div class="hero-card">
+                <h2 data-i18n="hero.title">Исследуйте Aetheris Sandbox</h2>
+                <p data-i18n="hero.desc">Минималистичная песочница с акцентом на свободу творчества и строительства.</p>
+                <div class="hero-buttons">
+                    <a href="#news" class="btn btn-solid glow" data-i18n="btn.news">
+                        <i class="fas fa-newspaper"></i> Новости
+                    </a>
+                    <a href="https://discord.gg/y63qupBrAe" class="btn glow" target="_blank" data-i18n="btn.discord">
+                        <i class="fab fa-discord"></i> Discord
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -265,7 +276,7 @@
                         <h3 class="team-name">Ноунейм</h3>
                         <p class="team-role" data-i18n="team.noname.role">Game Support</p>
                         <p class="team-description" data-i18n="team.noname.desc">Поддержка игрового комьюнити и модерация дискорд сервера</p>
-                        <p class="team-description" data-i18n="team.noname.handle">@nouneim0094</p>
+                        <p class="team-description" data-i18n="team.noname.handle">@nouneim0490</p>
                     </div>
                     <div class="team-card">
                         <img src="Darno.png" alt="TimAVX" class="team-avatar">
@@ -317,7 +328,7 @@
                     </div>
                     <div class="faq-answer">
                         <div class="answer-content">
-                            <p data-i18n="faq.q3.a">Бета-тестирование происходят примерно раз в месяц. Пишите в лс разработчику чтобы попробовать!</p>
+                            <p data-i18n="faq.q3.a">Первое закрытое бета-тестирование планируется осенью 2025 года.</p>
                         </div>
                     </div>
                 </div>
@@ -334,12 +345,12 @@
                 </div>
                 <div class="footer-links">
                     <a href="#core" data-i18n="nav.home">Главная</a>
-                    <a href="#news" data-i18n="nav.news">Новости</a>
+                    <a href="#news" data-i18n="nav.news">Обновления</a>
                     <a href="#faq" data-i18n="nav.faq">FAQ</a>
                     <a href="#studio" data-i18n="nav.studio">Nelik Studio</a>
                     <a href="https://discord.gg/y63qupBrAe" target="_blank" data-i18n="btn.discord">Discord</a>
                 </div>
-                <p class="copyright" data-i18n="footer.copyright">© 2025 Nelik Studio. Aetheris Sandbox - все права защищены.</p>
+                <p class="copyright" data-i18n="footer.copyright">© 2026 Nelik Studio. Aetheris Sandbox - все права защищены.</p>
             </div>
         </div>
     </footer>
@@ -347,5 +358,4 @@
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </body>
-
 </html>

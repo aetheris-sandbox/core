@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700&display=swap&subset=cyrillic');
+
 :root {
     --black: #000000;
     --dark-gray: #121212;
@@ -8,16 +12,24 @@
     --off-white: #F0F0F0;
     --accent: rgba(255, 255, 255, 0.1);
     --accent-hover: rgba(255, 255, 255, 0.15);
+    --glass: rgba(255,255,255,0.03);
+    --glass-strong: rgba(255,255,255,0.06);
+    --card-radius: 14px;
+    --btn-radius: 10px;
     --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --glow: 0 0 10px rgba(255, 255, 255, 0.1);
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-heading: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --heading-weight: 600;
+    --font-hero: 'Rubik', var(--font-heading);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-}
+    font-family: var(--font-body);
+}  
 
 body {
     background-color: var(--black);
@@ -26,7 +38,21 @@ body {
     overflow-x: hidden;
     position: relative;
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
+/* Make in-page anchor jumps look correct with fixed header */
+section { scroll-margin-top: 88px; }
+
+/* Heading font (Poppins) */
+h1, h2, h3, h4, h5, h6,
+.logo h1, .section-title h2, .hero h2, .category-title, .feature-title, .team-name {
+    font-family: var(--font-heading);
+    font-weight: var(--heading-weight);
+    letter-spacing: -0.4px;
+}
+
 
 .container {
     max-width: 1200px;
@@ -36,15 +62,15 @@ body {
 
 /* Header Styles */
 header {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 1rem 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.5));
+    padding: 0.8rem 0;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(14px) saturate(120%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     transition: var(--transition);
 }
 
@@ -56,37 +82,48 @@ header.hidden {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 15px;
+    flex-shrink: 0;
 }
 
 .logo img {
-    height: 40px;
-    width: 40px;
+    height: 44px;
+    width: 44px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     transition: var(--transition);
+    object-fit: cover;
+    display: block;
 }
 
 .logo:hover img {
-    transform: rotate(15deg);
+    transform: none;
 }
 
 .logo h1 {
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--white);
     letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+
+nav {
+    flex: 1;
+    margin: 0 auto;
 }
 
 nav ul {
     display: flex;
     list-style: none;
     gap: 20px;
+    justify-content: center;
 }
 
 nav a {
@@ -97,6 +134,7 @@ nav a {
     position: relative;
     transition: var(--transition);
     font-size: 0.95rem;
+    white-space: nowrap;
 }
 
 nav a::after {
@@ -134,8 +172,8 @@ nav a.active::after {
     display: flex;
     align-items: center;
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), 
-                url('main.png') no-repeat center center/cover;
+    /* background images are handled by pseudo-elements so we can blur them */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
     text-align: center;
     padding-top: 80px;
     overflow: hidden;
@@ -143,7 +181,7 @@ nav a.active::after {
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -153,8 +191,9 @@ nav a.active::after {
     margin-bottom: 1.5rem;
     color: var(--white);
     line-height: 1.2;
-    font-weight: 500;
-    letter-spacing: -1px;
+    font-weight: 700;
+    font-family: var(--font-hero);
+    letter-spacing: -0.6px;
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
@@ -167,6 +206,55 @@ nav a.active::after {
     margin-right: auto;
 }
 
+/* Blurred hero background using main.png anchored at bottom (improved rendering, transition-ready) */
+.hero::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    /* expand above and slightly below the section so image doesn't get cropped */
+    inset: -20% 0 -10% 0;
+    background-image: url('main.png');
+    background-position: center calc(100% - 48px); /* nudge so bottom isn't cut */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    /* восстановим естественную яркость, уменьшив затемнение */
+    filter: blur(6px) brightness(1);
+    transform: translateZ(0) translateY(2%);
+    will-change: transform, opacity, filter;
+    transition: opacity 0.35s cubic-bezier(0.22, 0.9, 0.35, 1), filter 0.35s cubic-bezier(0.22, 0.9, 0.35, 1);
+    z-index: 0;
+    opacity: 0; /* hidden by default, visible when section has .bg-visible */
+    pointer-events: none;
+}
+
+/* When section becomes visible, fade the background in smoothly */
+.hero.bg-visible::before {
+    opacity: 1;
+    filter: blur(6px) brightness(1);
+}
+
+/* Hero overlay should also fade in/out */
+.hero::after {
+    transition: opacity 0.35s cubic-bezier(0.22, 0.9, 0.35, 1);
+    opacity: 0.95;
+}
+
+.hero.bg-visible::after { opacity: 0.95; }
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: -20% 0 -10% 0;
+    /* более лёгкий оверлей - меньше затемнения */
+    background: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.15));
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.95;
+    transition: opacity 0.35s ease;
+} /* end hero */
+
 .hero-buttons {
     display: flex;
     gap: 15px;
@@ -178,7 +266,55 @@ nav a.active::after {
 .features-section {
     padding: 6rem 0;
     background-color: var(--black);
+    position: relative;
+    overflow: hidden;
 }
+
+.features-section::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    inset: -18% 0 -8% 0;
+    background-image: url('main1.png');
+    background-position: center calc(100% - 32px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    filter: blur(6px) brightness(0.95);
+    transform: translateZ(0) translateY(1%);
+    will-change: transform, opacity, filter;
+    transition: opacity 0.35s cubic-bezier(0.22, 0.9, 0.35, 1), filter 0.35s cubic-bezier(0.22, 0.9, 0.35, 1);
+    z-index: 0;
+    opacity: 0; /* hidden by default, fades in when .bg-visible added */
+    pointer-events: none;
+}
+
+.features-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    inset: -18% 0 -8% 0;
+    /* усиленное затемнение для фона */
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 100%);
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.35s cubic-bezier(0.22, 0.9, 0.35, 1);
+}
+
+.features-section.bg-visible::before {
+    opacity: 1;
+    filter: blur(5px) brightness(0.95);
+}
+
+.features-section.bg-visible::after {
+    opacity: 1;
+}
+
+.features-section .container { position: relative; z-index: 2; }
+
+
 
 .section-title {
     text-align: center;
@@ -187,7 +323,7 @@ nav a.active::after {
 
 .section-title h2 {
     font-size: 2.2rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--white);
     letter-spacing: -0.5px;
 }
@@ -206,19 +342,20 @@ nav a.active::after {
 }
 
 .feature-card {
-    background-color: var(--gray);
-    padding: 30px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(180deg, var(--glass), rgba(0,0,0,0.25));
+    padding: 32px;
+    border-radius: var(--card-radius);
+    border: 1px solid rgba(255,255,255,0.04);
     transition: var(--transition);
-    box-shadow: var(--glow);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6), 0 2px 8px rgba(255,255,255,0.02) inset;
+    backdrop-filter: blur(8px);
 }
 
 .feature-card:hover {
-    border-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-5px);
-    background-color: var(--light-gray);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.08);
+    transform: translateY(-6px);
+    background: linear-gradient(180deg, var(--glass-strong), rgba(0,0,0,0.22));
+    box-shadow: 0 18px 40px rgba(0,0,0,0.6);
 }
 
 .feature-icon {
@@ -288,20 +425,20 @@ nav a.active::after {
 }
 
 .team-card {
-    background-color: var(--gray);
-    padding: 30px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(180deg, var(--glass), rgba(0,0,0,0.2));
+    padding: 28px;
+    border-radius: var(--card-radius);
+    border: 1px solid rgba(255,255,255,0.04);
     transition: var(--transition);
     text-align: center;
-    box-shadow: var(--glow);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.55);
 }
 
 .team-card:hover {
-    border-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-5px);
-    background-color: var(--light-gray);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.08);
+    transform: translateY(-6px);
+    background: linear-gradient(180deg, var(--glass-strong), rgba(0,0,0,0.18));
+    box-shadow: 0 18px 40px rgba(0,0,0,0.6);
 }
 
 .team-avatar {
@@ -352,7 +489,69 @@ nav a.active::after {
     padding: 6rem 0;
     position: relative;
     background-color: var(--black);
+    overflow: hidden;
 }
+
+.posts-section::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    inset: -18% 0 -8% 0;
+    background-image: url('main2.png');
+    background-position: center calc(100% - 32px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    filter: blur(6px) brightness(0.95);
+    transform: translateZ(0) translateY(1%);
+    will-change: transform, opacity, filter;
+    transition: opacity 0.35s cubic-bezier(0.22, 0.9, 0.35, 1), filter 0.35s cubic-bezier(0.22, 0.9, 0.35, 1);
+    z-index: 0;
+    opacity: 0; /* hidden by default */
+    pointer-events: none;
+    image-rendering: auto; /* ensure best scaling */
+}
+
+/* If you have high-resolution versions (2x), use image-set for better quality on Retina displays:
+.posts-section::before { background-image: image-set(url('main2.png') 1x, url('main2@2x.png') 2x); }
+*/
+/* end posts */
+
+.posts-section::after {
+    transition: opacity 0.35s cubic-bezier(0.22, 0.9, 0.35, 1);
+    opacity: 0.95;
+}
+
+.posts-section.bg-visible::before {
+    opacity: 1;
+    filter: blur(5px) brightness(0.95);
+}
+
+.posts-section.bg-visible::after { opacity: 1; }
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .hero::before, .hero::after,
+    .features-section::before, .features-section::after,
+    .posts-section::before, .posts-section::after {
+        transition: none !important;
+    }
+}
+
+.posts-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    inset: -18% 0 -8% 0;
+    /* усиленное затемнение для фона */
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.posts-section .container { position: relative; z-index: 2; }
 
 .posts-grid {
     display: grid;
@@ -372,26 +571,28 @@ nav a.active::after {
 }
 
 .post-link:hover .post-card {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    /* Убрано свечение при наведении на ссылку-статью */
+    box-shadow: none;
 }
 
 .post-card {
-    background-color: var(--gray);
-    border-radius: 8px;
+    background: linear-gradient(180deg, var(--glass), rgba(0,0,0,0.25));
+    border-radius: var(--card-radius);
     overflow: hidden;
     transition: var(--transition);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: var(--glow);
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
 .post-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.1);
-    background-color: var(--light-gray);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    transform: translateY(-8px);
+    border-color: rgba(255,255,255,0.08);
+    background: linear-gradient(180deg, var(--glass-strong), rgba(0,0,0,0.2));
+    box-shadow: 0 24px 60px rgba(0,0,0,0.7);
 }
 
 .post-image {
@@ -485,11 +686,11 @@ nav a.active::after {
 }
 
 .faq-item {
-    margin-bottom: 15px;
-    border-radius: 8px;
+    margin-bottom: 16px;
+    border-radius: var(--card-radius);
     overflow: hidden;
-    background-color: var(--gray);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(180deg, var(--glass), rgba(0,0,0,0.2));
+    border: 1px solid rgba(255,255,255,0.04);
     transition: var(--transition);
 }
 
@@ -574,14 +775,14 @@ nav a.active::after {
 }
 
 .update-panel {
-    background-color: rgba(30, 30, 30, 0.9);
-    border-radius: 12px;
+    background: linear-gradient(180deg, var(--glass-strong), rgba(0,0,0,0.4));
+    border-radius: calc(var(--card-radius) + 2px);
     padding: 3rem;
     position: relative;
     z-index: 1;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px) saturate(120%);
 }
 
 .update-header {
@@ -722,10 +923,10 @@ nav a.active::after {
     background-color: transparent;
     color: var(--white);
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: var(--btn-radius);
     font-weight: 500;
     transition: var(--transition);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     cursor: pointer;
     font-size: 0.95rem;
     position: relative;
@@ -755,6 +956,8 @@ nav a.active::after {
 .btn:hover {
     background-color: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
 }
 
 .btn i {
@@ -765,12 +968,48 @@ nav a.active::after {
 .btn-solid {
     background-color: var(--white);
     color: var(--black);
-    border: 1px solid var(--white);
+    border: 1px solid rgba(255,255,255,0.9);
+    border-radius: var(--btn-radius);
+    padding: 12px 26px;
 }
 
 .btn-solid:hover {
     background-color: transparent;
     color: var(--white);
+}
+
+/* Header-specific button sizing: make header CTAs (Discord) more compact */
+header .header-actions .btn {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
+
+header .header-actions .btn i {
+    font-size: 0.95rem;
+    margin-right: 8px;
+}
+
+@media (max-width: 576px) {
+    header .header-actions .btn {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+
+    header .header-actions .btn i {
+        margin-right: 4px;
+        font-size: 0.8rem;
+    }
+
+    header .header-actions .btn .btn-text {
+        display: none;
+    }
+}
+
+/* Ensure hero & main CTA buttons keep their original prominence */
+.hero .btn, .hero .btn.btn-solid {
+    padding: 12px 26px;
+    font-size: 0.95rem;
 }
 
 /* Section divider */
@@ -783,6 +1022,27 @@ nav a.active::after {
                 rgba(255, 255, 255, 0) 100%);
     margin: 4rem 0;
 }
+
+/* Hero card overlay for Aero feel */
+.hero-content .hero-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.18));
+    padding: 40px 36px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    backdrop-filter: blur(12px) saturate(110%);
+    display: inline-block;
+    max-width: 880px;
+}
+
+.hero h2 { font-size: 3rem; }
+
+.hero p { color: rgba(255,255,255,0.78); }
+
+.hero { min-height: 80vh; }
+
+/* Rounded back-to-top & softer shadow */
+.back-to-top { border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.6); }
 
 /* Footer */
 footer {
@@ -882,7 +1142,7 @@ footer {
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
 }
 
 .fade-in.visible {
@@ -1048,78 +1308,693 @@ footer {
 @media (max-width: 992px) {
     .hero {
         height: auto;
-        padding: 8rem 0;
+        padding: 6rem 0;
     }
     
     .hero h2 {
         font-size: 2.5rem;
     }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+
+    .features-grid, .team-grid {
+        gap: 20px;
+    }
+
+    .feature-card, .team-card {
+        padding: 24px;
+    }
 }
 
 @media (max-width: 768px) {
+    :root {
+        --card-radius: 12px;
+        --btn-radius: 8px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    header {
+        padding: 0.6rem 0;
+    }
+
     .header-content {
-        flex-direction: column;
-        gap: 20px;
+        flex-direction: row;
+        gap: 10px;
     }
-    
+
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+
+    .logo img {
+        height: 36px;
+        width: 36px;
+    }
+
     nav ul {
-        gap: 15px;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .btn {
-        width: 100%;
-        max-width: 250px;
-    }
-    
-    .posts-grid, .features-grid, .team-grid {
-        grid-template-columns: 1fr;
+        gap: 10px;
+        display: none;
     }
 
-    .update-gallery {
-        grid-template-columns: 1fr;
+    nav a {
+        font-size: 0.85rem;
+        padding: 6px 0;
     }
-}
 
-@media (max-width: 576px) {
-    .hero h2 {
-        font-size: 2rem;
+    .header-actions {
+        gap: 8px !important;
     }
-    
-    .hero p {
+
+    header .header-actions .btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        gap: 4px;
+    }
+
+    header .header-actions .btn i {
+        font-size: 0.8rem;
+        margin-right: 4px;
+    }
+
+    .lang-btn {
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
+
+    .nav-toggle {
+        padding: 6px 8px;
         font-size: 1rem;
     }
-    
-    .section-title h2, .update-header h1 {
-        font-size: 1.8rem;
+
+    .hero {
+        height: auto;
+        padding: 5rem 0 4rem;
+        min-height: auto;
     }
-    
-    .feature-card, .post-card, .team-card {
-        padding: 20px;
+
+    .hero h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        line-height: 1.3;
     }
-    
-    .footer-links {
+
+    .hero p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+    }
+
+    .hero-card {
+        padding: 24px 20px;
+        border-radius: 12px;
+        max-width: 100%;
+    }
+
+    .hero-buttons {
         flex-direction: column;
-        align-items: center;
+        gap: 10px;
+        margin-top: 1.5rem;
     }
-    
-    .category-title {
-        font-size: 1.3rem;
+
+    .hero .btn {
+        width: 100%;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        margin-bottom: 2rem;
+    }
+
+    .section-title h2 {
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .features-grid, .team-grid, .posts-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .feature-card, .team-card, .post-card {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .feature-icon {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+
+    .feature-title {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
+    .feature-text {
+        font-size: 0.9rem;
+    }
+
+    .post-image {
+        height: 150px;
+    }
+
+    .post-content {
+        padding: 16px;
+    }
+
+    .post-title {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+    .post-text {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+
+    .post-date {
+        font-size: 0.75rem;
+    }
+
+    .team-avatar {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 15px;
+    }
+
+    .team-name {
+        font-size: 1.1rem;
+    }
+
+    .team-role {
+        font-size: 0.85rem;
+    }
+
+    .team-description {
+        font-size: 0.85rem;
+    }
+
+    .faq-container {
+        max-width: 100%;
+    }
+
+    .faq-item {
+        margin-bottom: 12px;
+    }
+
+    .faq-question {
+        padding: 16px;
+    }
+
+    .faq-question h3 {
+        font-size: 1rem;
+    }
+
+    .answer-content {
+        padding: 0 16px 16px;
+        min-height: auto;
+    }
+
+    .faq-answer p {
+        font-size: 0.9rem;
+    }
+
+    .update-panel {
+        padding: 2rem 1.5rem;
+        border-radius: 12px;
+    }
+
+    .update-header {
+        margin-bottom: 2rem;
+    }
+
+    .update-header h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .update-badge {
+        font-size: 0.8rem;
+        padding: 4px 12px;
+        margin-bottom: 1rem;
     }
 
     .update-meta {
         flex-direction: column;
-        gap: 5px;
+        gap: 8px;
+        font-size: 0.85rem;
     }
-     
+
+    .update-text h2 {
+        font-size: 1.4rem;
+        margin: 1.8rem 0 1rem;
+    }
+
+    .update-text p {
+        font-size: 0.95rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .update-text li {
+        font-size: 0.95rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .update-gallery {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin: 2rem 0;
+    }
+
+    .gallery-item img {
+        height: 180px;
+    }
+
+    .gallery-item p {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+
+    .features-section, .studio-section, .posts-section, .faq-section {
+        padding: 4rem 0;
+    }
+
+    .studio-category {
+        margin-bottom: 3rem;
+    }
+
+    .category-title {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    footer {
+        padding: 3rem 0 1.5rem;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-links a {
+        font-size: 0.85rem;
+    }
+
+    .copyright {
+        font-size: 0.75rem;
+        margin-top: 1.5rem;
+    }
+
+    .back-to-top {
+        width: 44px;
+        height: 44px;
+        bottom: 24px;
+        right: 24px;
+        font-size: 1.1rem;
+    }
+
+    .section-divider {
+        margin: 3rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 12px;
+    }
+
+    header {
+        padding: 0.5rem 0;
+    }
+
+    .header-content {
+        gap: 8px;
+    }
+
+    .logo h1 {
+        font-size: 1.1rem;
+    }
+
+    .logo img {
+        height: 32px;
+        width: 32px;
+    }
+
+    .nav-toggle {
+        padding: 4px 6px;
+        font-size: 0.9rem;
+    }
+
+    header .header-actions .btn {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+
+    .lang-btn {
+        padding: 3px 6px;
+        font-size: 0.7rem;
+    }
+
+    .hero {
+        padding: 4rem 0 3rem;
+    }
+
+    .hero h2 {
+        font-size: 1.7rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.25;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+        margin-bottom: 1.3rem;
+        line-height: 1.4;
+    }
+
+    .hero-card {
+        padding: 20px 16px;
+        gap: 10px;
+    }
+
+    .hero-buttons {
+        gap: 8px;
+        margin-top: 1rem;
+    }
+
+    .hero .btn {
+        padding: 9px 16px;
+        font-size: 0.85rem;
+    }
+
+    .hero .btn i {
+        margin-right: 6px;
+        font-size: 0.85rem;
+    }
+
+    .section-title {
+        margin-bottom: 1.5rem;
+    }
+
+    .section-title h2 {
+        font-size: 1.4rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .features-grid, .team-grid, .posts-grid {
+        gap: 12px;
+    }
+
+    .feature-card, .team-card, .post-card {
+        padding: 14px;
+    }
+
+    .feature-icon {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .feature-title {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .feature-text {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    .post-image {
+        height: 120px;
+    }
+
+    .post-content {
+        padding: 12px;
+    }
+
+    .post-badge {
+        top: 10px;
+        right: 10px;
+        padding: 3px 8px;
+        font-size: 0.65rem;
+    }
+
+    .post-title {
+        font-size: 1rem;
+        margin-bottom: 8px;
+        line-height: 1.3;
+    }
+
+    .post-text {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+
+    .post-date {
+        font-size: 0.7rem;
+    }
+
+    .tag {
+        padding: 3px 8px;
+        font-size: 0.7rem;
+    }
+
+    .team-avatar {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 12px;
+    }
+
+    .team-avatar.placeholder {
+        font-size: 2rem;
+    }
+
+    .team-name {
+        font-size: 1rem;
+        margin-bottom: 4px;
+    }
+
+    .team-role {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+    }
+
+    .team-description {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    .faq-item {
+        margin-bottom: 10px;
+    }
+
+    .faq-question {
+        padding: 14px;
+    }
+
+    .faq-question h3 {
+        font-size: 0.95rem;
+    }
+
+    .answer-content {
+        padding: 0 14px 14px;
+    }
+
+    .faq-answer p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    .update-panel {
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+    }
+
+    .update-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .update-header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.6rem;
+        background: none;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: unset;
+        color: var(--white);
+    }
+
+    .update-badge {
+        font-size: 0.7rem;
+        padding: 3px 10px;
+        margin-bottom: 0.8rem;
+    }
+
+    .update-meta {
+        font-size: 0.8rem;
+        gap: 6px;
+    }
+
+    .update-featured-image {
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+    }
+
+    .update-text h2 {
+        font-size: 1.2rem;
+        margin: 1.5rem 0 0.8rem;
+        gap: 6px;
+    }
+
+    .update-text h2 i {
+        font-size: 1rem;
+    }
+
+    .update-text p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+    }
+
+    .update-text ul {
+        padding-left: 16px;
+        margin-bottom: 1.5rem;
+    }
+
+    .update-text li {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        padding-left: 20px;
+    }
+
+    .update-text li:before {
+        font-size: 1.2rem;
+    }
+
+    .update-gallery {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 1.5rem 0;
+    }
+
+    .gallery-item img {
+        height: 150px;
+    }
+
+    .gallery-item p {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+
+    .update-footer {
+        margin-top: 2rem;
+    }
+
+    .features-section, .studio-section, .posts-section, .faq-section {
+        padding: 3rem 0;
+    }
+
+    .studio-category {
+        margin-bottom: 2rem;
+    }
+
+    .category-title {
+        font-size: 1.2rem;
+        margin-bottom: 1.2rem;
+        padding-bottom: 8px;
+    }
+
+    .category-title::after {
+        width: 60px;
+    }
+
+    footer {
+        padding: 2.5rem 0 1.2rem;
+    }
+
+    .footer-logo {
+        gap: 10px;
+        font-size: 1.3rem;
+    }
+
+    .footer-logo img {
+        height: 32px;
+        width: 32px;
+    }
+
+    .footer-links {
+        gap: 12px;
+        margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+        font-size: 0.8rem;
+    }
+
+    .copyright {
+        font-size: 0.7rem;
+        margin-top: 1rem;
+    }
+
     .back-to-top {
         width: 40px;
         height: 40px;
+        bottom: 20px;
+        right: 20px;
         font-size: 1rem;
+    }
+
+    .section-divider {
+        margin: 2rem 0;
+        height: 1px;
+    }
+
+    .not-found {
+        padding: 0 16px;
+    }
+
+    .not-found-content {
+        max-width: 100%;
+    }
+
+    .not-found-image {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 1.5rem;
+    }
+
+    .not-found-number {
+        font-size: 4rem;
+    }
+
+    .not-found h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .not-found p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .not-found-buttons {
+        gap: 12px;
     }
 }
 
@@ -1128,7 +2003,9 @@ footer {
     display: flex;
     gap: 8px;
     align-items: center;
+    flex-shrink: 0;
 }
+
 .lang-btn {
     background: transparent;
     color: rgba(255,255,255,0.8);
@@ -1140,10 +2017,12 @@ footer {
     font-size: 0.85rem;
     transition: var(--transition);
 }
+
 .lang-btn:hover {
     color: var(--white);
     border-color: rgba(255,255,255,0.14);
 }
+
 .lang-btn.active {
     background: var(--white);
     color: var(--black);
@@ -1157,14 +2036,65 @@ footer {
     padding: 8px 10px;
     border-radius: 8px;
     cursor: pointer;
+    flex-shrink: 0;
+}
+
+@media (min-width: 769px) {
+    .nav-toggle {
+        display: none !important;
+    }
+}
+
+.nav-toggle:hover {
+    border-color: rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.05);
 }
 
 @media (max-width: 768px) {
-    .nav-toggle { display: inline-flex; }
-    header .header-content { align-items: flex-start; }
-    header nav { display: none; width: 100%; }
-    header.nav-open nav { display: block; }
-    header nav ul { flex-direction: column; gap: 12px; padding: 10px 0; }
-    header nav a { display: block; padding: 10px 12px; }
-    .lang-switcher { margin-left: auto; }
+    .nav-toggle { 
+        display: inline-flex; 
+        align-items: center;
+        justify-content: center;
+    }
+    
+    header .header-content { 
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    header nav { 
+        display: none; 
+        width: 100%; 
+        order: 3;
+        background: rgba(0,0,0,0.4);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255,255,255,0.05);
+        margin-top: 8px;
+        border-radius: 0 0 12px 12px;
+    }
+    
+    header.nav-open nav { 
+        display: block; 
+    }
+    
+    header nav ul { 
+        flex-direction: column; 
+        gap: 8px; 
+        padding: 12px 16px; 
+    }
+    
+    header nav a { 
+        display: block; 
+        padding: 10px 12px;
+        border-radius: 6px;
+        transition: var(--transition);
+    }
+    
+    header nav a:hover {
+        background: rgba(255,255,255,0.05);
+    }
+    
+    .lang-switcher { 
+        order: 2;
+    }
 }

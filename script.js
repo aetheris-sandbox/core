@@ -87,6 +87,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         link.classList.remove('active');
                     });
                     this.classList.add('active');
+
+                    // Close mobile nav if open
+                    const header = document.querySelector('header');
+                    if (header) {
+                        header.classList.remove('nav-open');
+                    }
                 }
             });
         });
@@ -137,6 +143,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
+    }
+
+    // Smooth fade for section background images using IntersectionObserver
+    function setupBackgroundFade() {
+        const targets = document.querySelectorAll('.hero, .features-section, .posts-section');
+
+        if (!('IntersectionObserver' in window)) {
+            // Fallback: make backgrounds visible
+            targets.forEach(t => t.classList.add('bg-visible'));
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Trigger as soon as element intersects viewport (earlier appearance)
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('bg-visible');
+                } else {
+                    entry.target.classList.remove('bg-visible');
+                }
+            });
+        }, { threshold: [0.01], rootMargin: '-40% 0% -40% 0%' });
+
+        targets.forEach(t => observer.observe(t));
     }
 
     // Particles.js initialization
@@ -219,6 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupSmoothScrolling();
     setupBackToTop();
     setupActiveNavLink();
+    setupBackgroundFade();
     
     // Initialize particles after page load
     window.addEventListener('load', () => {
@@ -226,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Add floating class to elements that should float
-    const floatingElements = document.querySelectorAll('.logo, .feature-icon');
+    const floatingElements = document.querySelectorAll('.feature-icon');
     floatingElements.forEach(el => el.classList.add('floating'));
     
     // Add glow effect to buttons and cards
@@ -238,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ru: {
             'site.title': 'Aetheris Sandbox',
             'nav.home': 'Главная',
-            'nav.news': 'Новости',
+            'nav.news': 'Обновления',
             'nav.faq': 'FAQ',
             'nav.studio': 'Nelik Studio',
             'hero.title': 'Исследуйте Aetheris Sandbox',
@@ -272,7 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'update.added_heading': 'Добавлено',
             'update.added_desc': 'Что добавлено еще:',
             'update.back_to_news': 'Назад к новостям',
-            'footer.copyright': '© 2025 Nelik Studio. Aetheris Sandbox - все права защищены.',
+            'footer.copyright': '© 2026 Nelik Studio. Aetheris Sandbox - все права защищены.',
             'posts.title': 'Последние обновления',
             'posts.subtitle': 'Следите за развитием проекта',
             'meta.description': 'Aetheris Sandbox — минималистичная многопользовательская игра-песочница с системой строительства, автомобилями и свободой творчества. Присоединяйся к бета-тесту!',
@@ -336,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'faq.q2.q': 'На каких платформах доступна игра?',
             'faq.q2.a': 'В настоящее время игра доступна только на PC (Windows).',
             'faq.q3.q': 'Когда выйдет игра?',
-            'faq.q3.a': 'Бета-тестирование происходят примерно раз в месяц. Пишите в ЛС разработчику чтобы попробовать!'
+            'faq.q3.a': 'Первое закрытое бета-тестирование планируется осенью 2025 года.'
             ,
             /* chat-command page */
             'chat.li.join_leave': 'При заходе / выходе игрока в чат выводится соответвующее сообщение',
@@ -434,7 +465,7 @@ document.addEventListener('DOMContentLoaded', function() {
         en: {
             'site.title': 'Aetheris Sandbox',
             'nav.home': 'Home',
-            'nav.news': 'News',
+            'nav.news': 'Updates',
             'nav.faq': 'FAQ',
             'nav.studio': 'Nelik Studio',
             'hero.title': 'Explore Aetheris Sandbox',
@@ -468,7 +499,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'update.added_heading': 'Added',
             'update.added_desc': 'Also added:',
             'update.back_to_news': 'Back to news',
-            'footer.copyright': '© 2025 Nelik Studio. Aetheris Sandbox - all rights reserved.',
+            'footer.copyright': '© 2026 Nelik Studio. Aetheris Sandbox - all rights reserved.',
             'posts.title': 'Latest updates',
             'posts.subtitle': 'Follow the project development',
             'meta.description': 'Aetheris Sandbox — a minimalist multiplayer sandbox game with building system, vehicles and creative freedom. Join the beta test!',
@@ -532,7 +563,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'faq.q2.q': 'On which platforms is the game available?',
             'faq.q2.a': 'Currently the game is available only on PC (Windows).',
             'faq.q3.q': 'When will the game be released?',
-            'faq.q3.a': 'Beta testing happens approximately once a month. Message the developer directly to try it out!'
+            'faq.q3.a': 'The first closed beta test is planned for Autumn 2025.'
             ,
             /* chat-command page */
             'chat.li.join_leave': 'Join/leave messages are shown in chat when players enter or leave',
@@ -745,24 +776,40 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile nav toggle: inject a toggle button and wire behavior
     function setupMobileNav() {
         const header = document.querySelector('header');
-        const headerContainer = header && header.querySelector('.header-content');
-        if (!header || !headerContainer) return;
+        const nav = header && header.querySelector('nav');
+        if (!header || !nav) return;
 
-        // create toggle only once
-        if (!headerContainer.querySelector('.nav-toggle')) {
-            const btn = document.createElement('button');
-            btn.className = 'nav-toggle';
-            btn.setAttribute('aria-label', 'Toggle navigation');
-            btn.innerHTML = '<i class="fas fa-bars"></i>';
-            headerContainer.appendChild(btn);
-
-            btn.addEventListener('click', () => {
-                header.classList.toggle('nav-open');
-            });
+        // Find or create toggle button
+        let toggleBtn = header.querySelector('.nav-toggle');
+        if (!toggleBtn) {
+            toggleBtn = document.createElement('button');
+            toggleBtn.className = 'nav-toggle';
+            toggleBtn.setAttribute('aria-label', 'Toggle navigation');
+            toggleBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            header.querySelector('.header-content').insertBefore(toggleBtn, nav.nextSibling);
         }
+
+        // Toggle nav visibility
+        toggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            header.classList.toggle('nav-open');
+        });
+
+        // Close nav when clicking on a nav link
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                header.classList.remove('nav-open');
+            });
+        });
+
+        // Close nav when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!header.contains(e.target)) {
+                header.classList.remove('nav-open');
+            }
+        });
     }
 
     setupLangSwitcher();
     setupMobileNav();
-
 });
