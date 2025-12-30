@@ -367,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'faq.q2.q': 'На каких платформах доступна игра?',
             'faq.q2.a': 'В настоящее время игра доступна только на PC (Windows).',
             'faq.q3.q': 'Когда выйдет игра?',
-            'faq.q3.a': 'Первое закрытое бета-тестирование планируется осенью 2025 года.'
+            'faq.q3.a': 'Закрытое бета-тестирование происходят раз в месяц. Если хотите поучаствовать - напишите в дискорд сервер.'
             ,
             /* chat-command page */
             'chat.li.join_leave': 'При заходе / выходе игрока в чат выводится соответвующее сообщение',
@@ -563,7 +563,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'faq.q2.q': 'On which platforms is the game available?',
             'faq.q2.a': 'Currently the game is available only on PC (Windows).',
             'faq.q3.q': 'When will the game be released?',
-            'faq.q3.a': 'The first closed beta test is planned for Autumn 2025.'
+            'faq.q3.a': 'Closed beta testing takes place once a month. If youd like to participate, please contact us on the Discord server.'
             ,
             /* chat-command page */
             'chat.li.join_leave': 'Join/leave messages are shown in chat when players enter or leave',
